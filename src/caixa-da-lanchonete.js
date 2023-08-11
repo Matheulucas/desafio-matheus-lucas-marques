@@ -12,7 +12,6 @@ const extras = {
     chantily: "cafe",
     queijo: "sanduiche"
 };
-
 class CaixaDaLanchonete {
 
     calcularValorDaCompra(metodoDePagamento, itens) {
@@ -23,15 +22,13 @@ class CaixaDaLanchonete {
         const erroExtras = this.verificarExtras(itens);
         if (erroExtras) return erroExtras;
 
-       
-
         const totalFinal = this.aplicarDescontosOuTaxas(total, metodoDePagamento);
         if (typeof totalFinal === "string") return totalFinal;
 
         return `R$ ${totalFinal.toFixed(2).replace('.', ',')}`;
     }
      verificarExtras(pedidos) {
-        const contarQuantidades = (codigoItem) => {
+    const contarQuantidades = (codigoItem) => {
         let quantidadeTotal = 0;
         for (let pedido of pedidos) {
             let [codigo, quantidade] = pedido.split(',');
